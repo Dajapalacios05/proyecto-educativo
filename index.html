@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Educativo: Glosario de Programación</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa; color: #333; max-width: 800px; margin: 30px auto; padding: 20px; }
+        h1, h2 { color: #2c3e50; text-align: center; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .campo { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #3498db; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #2980b9; }
+        button.btn-eliminar { background-color: #e74c3c; }
+        button.btn-eliminar:hover { background-color: #c0392b; }
+        button.btn-editar { background-color: #f39c12; margin-right: 5px; }
+        button.btn-editar:hover { background-color: #d35400; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #2c3e50; color: white; }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Glosario Educativo Tecnológico</h1>
+    
+    <!-- Formulario para Crear y Actualizar -->
+    <form id="formulario-termino">
+        <input type="hidden" id="id-termino">
+        <h2 id="titulo-formulario">Agregar Nuevo Término</h2>
+        
+        <div class="campo">
+            <label for="concepto">Concepto / Término:</label>
+            <input type="text" id="concepto" required placeholder="Ej: Variable, Algoritmo...">
+        </div>
+        
+        <div class="campo">
+            <label for="definicion">Definición Educativa:</label>
+            <textarea id="definicion" rows="3" required placeholder="Explica brevemente qué significa..."></textarea>
+        </div>
+        
+        <button type="submit" id="btn-guardar">Guardar Término</button>
+        <button type="button" id="btn-cancelar" style="display:none; background-color:#95a5a6;">Cancelar</button>
+    </form>
+
+    <!-- Tabla para Leer, Editar y Borrar -->
+    <h2>Términos Registrados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Definición</th>
+                <th style="width: 150px;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-cuerpo">
+            <!-- Los datos se inyectarán dinámicamente aquí -->
+        </tbody>
+    </table>
+
+    <!-- Scripts Modulares -->
+    <script src="src/datos.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
